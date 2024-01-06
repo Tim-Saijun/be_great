@@ -75,7 +75,7 @@ def _convert_tokens_to_text(
     text_data = [d.replace("<|endoftext|>", "") for d in text_data]
     text_data = [d.replace("\n", " ") for d in text_data]
     text_data = [d.replace("\r", "") for d in text_data]
-
+    print(text_data)
     return text_data
 
 
@@ -163,6 +163,7 @@ def _partial_df_to_promts(partial_df: pd.DataFrame):
         + (fst + " is" if fst is not None else "")
         for enc, fst in zip(res_encode, res_first)
     ]
+    print(res)
     return res
 
 

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "be-great-v"
-version = "0.1.1"
+version = "0.1.2"
 authors = [
   { name= "Tim Saijun", email = "code@zair.top"},
   { name="Kathrin Sessler", email="kathrin.sessler@tum.de" },
