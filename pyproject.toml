@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "be-great-v"
-version = "0.1.2"
+version = "0.1.3"
 authors = [
   { name= "Tim Saijun", email = "code@zair.top"},
   { name="Kathrin Sessler", email="kathrin.sessler@tum.de" },
@@ -29,6 +29,7 @@ dependencies = [
     "tqdm >= 4.64.1",
     "transformers >= 4.22.1",
     "accelerate >= 0.20.1",
+    "peft",
 ]
 
 [project.urls]
