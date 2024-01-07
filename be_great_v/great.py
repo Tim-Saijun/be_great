@@ -83,7 +83,7 @@ class GReaT:
 
         # 查看所有参数
         for name, param in self.model.named_parameters():
-            logging.info(f"参数名：{name}\t 参数：{param}")
+            logging.info(f"参数名：{name}\t")
             
         if self.efficient_finetuning == "lora":
             # Lazy importing
