@@ -81,6 +81,10 @@ class GReaT:
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.model = AutoModelForCausalLM.from_pretrained(self.llm)
 
+        # 查看所有参数
+        for name, param in self.model.named_parameters():
+            logging.info(f"参数名：{name}\t 参数：{param}")
+            
         if self.efficient_finetuning == "lora":
             # Lazy importing
             try:
