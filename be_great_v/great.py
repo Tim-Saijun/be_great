@@ -85,6 +85,14 @@ class GReaT:
         for name, param in self.model.named_parameters():
             logging.info(f"参数名：{name}\t")
             
+            if 'ln' in name or 'wpe' in name: # or 'mlp' in name:
+                param.requires_grad = True
+            # elif 'mlp' in name and configs.mlp == 1:
+            elif 'mlp' in name :
+                param.requires_grad = True
+            else:
+                param.requires_grad = False
+                
         if self.efficient_finetuning == "lora":
             # Lazy importing
             try:
