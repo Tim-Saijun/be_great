@@ -81,17 +81,19 @@ class GReaT:
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.model = AutoModelForCausalLM.from_pretrained(self.llm)
 
-        # 查看所有参数
-        for name, param in self.model.named_parameters():
-            logging.info(f"参数名：{name}\t")
-            
-            if 'ln' in name or 'wpe' in name: # or 'mlp' in name:
-                param.requires_grad = True
-            # elif 'mlp' in name and configs.mlp == 1:
-            elif 'mlp' in name :
-                param.requires_grad = True
-            else:
-                param.requires_grad = False
+        if self.efficient_finetuning == "frozen":
+            for name, param in self.model.named_parameters():
+                # logging.info(f"参数名：{name}\t")
+                
+                if 'ln' in name or 'wpe' in name: # or 'mlp' in name:
+                    param.requires_grad = True
+                    logging.info(f"未冻结{name}")
+                # elif 'mlp' in name and configs.mlp == 1:
+                elif 'mlp' in name :
+                    param.requires_grad = True
+                    logging.info(f"未冻结{name}")
+                else:
+                    param.requires_grad = False
                 
         if self.efficient_finetuning == "lora":
             # Lazy importing
